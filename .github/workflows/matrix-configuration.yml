@@ -13,16 +13,16 @@ jobs:
         os: [ubuntu-latest, ubuntu-22.04, windows-latest]
         images: [hello-world, alpine]
         exclude:
-          - os: alpine 
-            images: windows-latest
+          - images: alpine 
+            os: windows-latest
         include:
-          - os: amd64/alpine
-            images: ubuntu-22.04
+          - images: amd64/alpine
+            os: ubuntu-22.04
 
     runs-on: ${{ matrix.os }}
     
     steps:
-      - name: Show Docker Info
+      - name: Echo Docker Details
         run: docker info
 
       - name: Run Docker on ${{ matrix.os }}
